@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+
+/*
+ * Problems:
+ * x Create a method called mergeTwoArrayLists which takes in two ArrayLists as inputs, l1 and l2. 
+ * x Collect the positive elements from the lists into a new ArrayList and return it.
+ */
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +18,9 @@ public class Main {
     }
 
     public static ArrayList<Integer> mergeTwoArrayLists(ArrayList<Integer> l1, ArrayList<Integer> l2) {
-        // your code here
-        return null;
+        ArrayList<Integer> postiveOnly = new ArrayList<>();
+        l1.stream().filter(number -> number.compareTo(0) > 0).forEach(postiveOnly::add);
+        l2.stream().filter(number -> number.compareTo(0) > 0).forEach(postiveOnly::add);
+        return postiveOnly;
     }
 }
